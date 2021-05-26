@@ -3,10 +3,7 @@ package projectlab.test;
 import framework.BaseTest;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Parameters;
-import projectlab.pages.CategoryPage;
-import projectlab.pages.GamePage;
-import projectlab.pages.InstallerPage;
-import projectlab.pages.MainPage;
+import projectlab.pages.*;
 
 import java.util.Locale;
 import java.util.ResourceBundle;
@@ -36,8 +33,6 @@ public class TC_001_DownloadSteamTest extends BaseTest {
         logger.step(4);
         InstallerPage installerPage = new InstallerPage();
         installerPage.downloadSteamAndVerify();
-        //comments
-
 
     }
 }

@@ -65,7 +65,6 @@ public abstract class BaseElement extends BaseEntity {
         }
     }
 
-
     public String getText() {
         waitForIsElementPresent();
         return element.getText();
