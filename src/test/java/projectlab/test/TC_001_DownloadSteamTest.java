@@ -10,10 +10,10 @@ import java.util.ResourceBundle;
 
 public class TC_001_DownloadSteamTest extends BaseTest {
 
-    @Parameters({"siteLanguage"})
+
     @BeforeClass
-    public void before(String siteLanguage) {
-        resourceBundle = ResourceBundle.getBundle(resourceBundlePath, Locale.forLanguageTag(siteLanguage));
+    public void before() {
+        resourceBundle = ResourceBundle.getBundle(resourceBundlePath, Locale.forLanguageTag(System.getProperty("language")));
     }
 
     public void runTest() throws Exception {
