@@ -7,12 +7,11 @@ import org.openqa.selenium.By;
 
 public class BaseSteamPage extends BasePage {
 
+    private Button btnInstallSteam = new Button(By.xpath("//div[@class='header_installsteam_btn header_installsteam_btn_green']"), "Header Install Steam Button");
+
     public BaseSteamPage(By locator, String pageTitle) {
         super(locator, pageTitle);
     }
-
-    private Button btnInstallSteam = new Button(By.xpath("//div[@class='header_installsteam_btn header_installsteam_btn_green']"), "Header Install Steam Button");
-
 
     public void clickInstallSteam() {
         btnInstallSteam.clickAndWait();

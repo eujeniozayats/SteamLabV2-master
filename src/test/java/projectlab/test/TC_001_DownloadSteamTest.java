@@ -2,8 +2,10 @@ package projectlab.test;
 
 import framework.BaseTest;
 import org.testng.annotations.BeforeClass;
-import org.testng.annotations.Parameters;
-import projectlab.pages.*;
+import projectlab.pages.CategoryPage;
+import projectlab.pages.GamePage;
+import projectlab.pages.InstallerPage;
+import projectlab.pages.MainPage;
 
 import java.util.Locale;
 import java.util.ResourceBundle;
