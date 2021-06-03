@@ -75,6 +75,38 @@ public abstract class BaseElement extends BaseEntity {
         return isPresent(TIMEOUT_WAIT_0);
     }
 
+    public boolean isDisplayed() {
+        WebDriverWait wait = new WebDriverWait(BrowserManager.getInstance().getDriver(), 0);
+        browser.getDriver().manage().timeouts().implicitlyWait(TIMEOUT_WAIT_0, TimeUnit.SECONDS);
+        try {
+            wait.until((ExpectedCondition<Boolean>) driver -> {
+                try {
+                    List<WebElement> list = driver.findElements(locator);
+                    for (WebElement el : list) {
+                        if (el != null && el.isDisplayed()) {
+                            element = el;
+                            return element.isDisplayed();
+                        }
+                    }
+                    element = driver.findElement(locator);
+                } catch (Exception e) {
+                    return false;
+                }
+                return element.isDisplayed();
+            });
+        } catch (Exception e) {
+            return false;
+        }
+        try {
+            browser.getDriver().manage().timeouts().implicitlyWait(TIMEOUT_WAIT_0, TimeUnit.SECONDS);
+            return element.isDisplayed();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return false;
+    }
+
+
     public boolean isPresent(int timeout) {
 
         WebDriverWait wait = new WebDriverWait(BrowserManager.getInstance().getDriver(), timeout);
